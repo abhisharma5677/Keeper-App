@@ -8,11 +8,19 @@ import InputArea from './InputArea'
 
 
 const App = () => {
-  const[noteArray , setNoteArray] = useState([]);
+  const [noteArray, setNoteArray] = useState([]);
 
-  function addNote(newNote){
+  function addNote(newNote) {
     setNoteArray(preValue => {
-      return [...preValue , newNote]
+      return [...preValue, newNote]
+    });
+  }
+
+  function deleteContent(id) {
+    setNoteArray(preValue => {
+      return preValue.filter((value, index) => {
+        return index !== id;
+      });
     });
   }
 
@@ -20,14 +28,17 @@ const App = () => {
     <div>
       <Header />
 
-      <InputArea onAdd = {addNote} />
+      <InputArea onAdd={addNote} />
 
       <div className='Container'>
-        {noteArray.map((detail) => {
+        {noteArray.map((detail, index) => {
           return (
             <Notes
+              key={index}
+              id={index}
               title={detail.title}
               content={detail.content}
+              onDelete={deleteContent}
             />
           )
         })}
