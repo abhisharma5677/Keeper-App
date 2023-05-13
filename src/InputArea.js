@@ -22,6 +22,12 @@ const InputArea = (props) => {
     function handleClick(event) {
         event.preventDefault();
         props.onAdd(note);
+        setNote(() => {
+            return {
+                title:"",
+                content:""
+            }
+        })
     }
 
     return (
