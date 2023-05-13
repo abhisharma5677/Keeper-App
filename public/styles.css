@@ -116,14 +116,14 @@ form button {
     } */
     form input {
         display: block;
-        max-width: 400px;
+        max-width: 300px;
         height: 70px;
         border: none;
         font-size: large;
     }
     form textarea {
         display: block;
-        max-width: 400px;
+        max-width: 300px;
         height: 100px;
         border: none;
         font-size:larger;
